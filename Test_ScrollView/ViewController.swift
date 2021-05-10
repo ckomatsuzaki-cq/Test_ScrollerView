@@ -7,54 +7,48 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var topTextField: UITextField!
-    @IBOutlet weak var SecondTextField: UITextField!
-    @IBOutlet weak var dateTextField: UITextField!
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
-    let datePicker = UIDatePicker()
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var layoutLists = [LayoutList]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        createDatePicker()
     }
     
-    @IBAction func tapScreen(_ sender: Any) {
-        self.view.endEditing(true)
+    // 表示するセルの数
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
     }
     
-    func createDatePicker(){
+    // 表示するセルを返す
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // 表示するセルを登録(先程命名した"Cell")
+        let layout = layoutLists[indexPath.section].layouts[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: layout.reuseIdentifier, for: indexPath)
         
-        datePicker.datePickerMode = .date
-        datePicker.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
-        datePicker.preferredDatePickerStyle = .wheels
-        
-        dateTextField.inputView = datePicker
-        
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneClicked))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        toolbar.setItems([flexibleSpace, doneButton], animated: true)
-        
-        dateTextField.inputAccessoryView = toolbar
+        cell.backgroundColor = .gray  // セルの色
+        return cell
     }
     
-    @objc func doneClicked(){
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale    = NSLocale(localeIdentifier: "ja_JP") as Locale?
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        
-        dateTextField.text = dateFormatter.string(from: datePicker.date)
-        
-        self.view.endEditing(true)
+    // UICollectionViewの外周余白
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
-    @IBAction func submitButton(_ sender: Any) {
+    // Cellのサイズ
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: CGFloat(1000), height: CGFloat(100))
     }
+    // 行の最小余白
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    // 列の最小余白
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    
 }
