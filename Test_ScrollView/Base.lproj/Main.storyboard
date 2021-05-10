@@ -3,9 +3,9 @@
     <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,59 +23,74 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9OO-Ve-54G">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="2000"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cK0-oP-6PV">
-                                                <rect key="frame" x="292.5" y="1711" width="440" height="80"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="440" id="aos-ix-6gS"/>
-                                                    <constraint firstAttribute="height" constant="80" id="bYU-Rd-Ibs"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg0-GQ-i5N">
-                                                <rect key="frame" x="408" y="1838" width="209" height="154"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="209" id="i9H-PF-Dee"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kh7-Va-aeS">
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1929"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="20" id="EPv-3d-3my">
+                                                    <size key="itemSize" width="1022" height="177"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextFieldCell" id="iJ5-Qb-7Xf">
+                                                        <rect key="frame" x="1" y="0.0" width="1022" height="177"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7VI-vE-cdm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="1022" height="177"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-lO-Qcn">
+                                                                    <rect key="frame" x="462" y="71" width="97" height="34"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                            </subviews>
+                                                        </collectionViewCellContentView>
+                                                    </collectionViewCell>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DatePickerCell" id="Udw-jx-NeF">
+                                                        <rect key="frame" x="1" y="187" width="1022" height="177"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="y8w-kc-IcN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="1022" height="177"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nuu-vT-8AP">
+                                                                    <rect key="frame" x="0.0" y="-20" width="1022" height="216"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                                </datePicker>
+                                                            </subviews>
+                                                        </collectionViewCellContentView>
+                                                        <size key="customSize" width="1022" height="177"/>
+                                                    </collectionViewCell>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ButttonCell" id="Mud-nT-c52">
+                                                        <rect key="frame" x="1" y="374" width="1022" height="177"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bXY-R1-WDc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="1022" height="177"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZX-bv-nda">
+                                                                    <rect key="frame" x="488" y="73" width="46" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                </button>
+                                                            </subviews>
+                                                        </collectionViewCellContentView>
+                                                    </collectionViewCell>
+                                                </cells>
                                                 <connections>
-                                                    <action selector="submitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LEu-4E-9GK"/>
+                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="93l-re-TI9"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vhl-VO-sYT"/>
                                                 </connections>
-                                            </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZWA-Ls-Omi">
-                                                <rect key="frame" x="292.5" y="1578" width="440" height="80"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="440" id="Bqp-jB-wTs"/>
-                                                    <constraint firstAttribute="height" constant="80" id="ldN-24-h6h"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vrk-4e-7Zk">
-                                                <rect key="frame" x="292" y="960" width="440" height="80"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="oDc-R8-fnX"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstItem="Bg0-GQ-i5N" firstAttribute="centerX" secondItem="cK0-oP-6PV" secondAttribute="centerX" id="2My-A4-MqM"/>
-                                            <constraint firstItem="vrk-4e-7Zk" firstAttribute="top" secondItem="9OO-Ve-54G" secondAttribute="top" constant="960" id="DkJ-Fo-KIT"/>
-                                            <constraint firstItem="ZWA-Ls-Omi" firstAttribute="leading" secondItem="vrk-4e-7Zk" secondAttribute="leading" id="FDJ-GL-KVB"/>
-                                            <constraint firstItem="Bg0-GQ-i5N" firstAttribute="leading" secondItem="9OO-Ve-54G" secondAttribute="leading" constant="408" id="MlA-pq-HMr"/>
-                                            <constraint firstAttribute="bottom" secondItem="cK0-oP-6PV" secondAttribute="bottom" constant="209" id="Rhp-2N-RxA"/>
-                                            <constraint firstItem="Bg0-GQ-i5N" firstAttribute="top" secondItem="cK0-oP-6PV" secondAttribute="bottom" constant="47" id="ZZm-EA-pkK"/>
-                                            <constraint firstItem="ZWA-Ls-Omi" firstAttribute="centerX" secondItem="cK0-oP-6PV" secondAttribute="centerX" id="aEH-iZ-kaM"/>
-                                            <constraint firstItem="cK0-oP-6PV" firstAttribute="top" secondItem="ZWA-Ls-Omi" secondAttribute="bottom" constant="53" id="daz-e9-0ot"/>
-                                            <constraint firstAttribute="bottom" secondItem="Bg0-GQ-i5N" secondAttribute="bottom" constant="8" id="jcW-ky-UXd"/>
-                                            <constraint firstItem="ZWA-Ls-Omi" firstAttribute="trailing" secondItem="vrk-4e-7Zk" secondAttribute="trailing" id="mXY-CF-IUr"/>
+                                            <constraint firstItem="Kh7-Va-aeS" firstAttribute="top" secondItem="9OO-Ve-54G" secondAttribute="top" id="TdA-mm-PEL"/>
+                                            <constraint firstItem="Kh7-Va-aeS" firstAttribute="leading" secondItem="9OO-Ve-54G" secondAttribute="leading" id="mmE-Cj-yLL"/>
                                             <constraint firstAttribute="height" constant="2000" id="xxY-ij-v3L"/>
                                         </constraints>
                                         <connections>
@@ -105,9 +120,7 @@
                     </view>
                     <size key="freeformSize" width="1024" height="2000"/>
                     <connections>
-                        <outlet property="SecondTextField" destination="ZWA-Ls-Omi" id="VLY-vF-cBK"/>
-                        <outlet property="dateTextField" destination="cK0-oP-6PV" id="fTI-3p-b9x"/>
-                        <outlet property="topTextField" destination="vrk-4e-7Zk" id="ozZ-Kz-PCV"/>
+                        <outlet property="collectionView" destination="Kh7-Va-aeS" id="g4t-It-ocI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -121,9 +134,6 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
