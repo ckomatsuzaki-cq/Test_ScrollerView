@@ -23,9 +23,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9OO-Ve-54G">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="2000"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kh7-Va-aeS">
-                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1929"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kh7-Va-aeS">
+                                                <rect key="frame" x="0.0" y="1036" width="1024" height="964"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="964" id="L07-Hq-I4t"/>
+                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="20" id="EPv-3d-3my">
                                                     <size key="itemSize" width="1022" height="177"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -65,18 +68,22 @@
                                                         <size key="customSize" width="1022" height="177"/>
                                                     </collectionViewCell>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ButttonCell" id="Mud-nT-c52">
-                                                        <rect key="frame" x="1" y="374" width="1022" height="177"/>
+                                                        <rect key="frame" x="1" y="374" width="1022" height="176"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bXY-R1-WDc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="1022" height="177"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="1022" height="176"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZX-bv-nda">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZX-bv-nda">
                                                                     <rect key="frame" x="488" y="73" width="46" height="30"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <state key="normal" title="Button"/>
                                                                 </button>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="GZX-bv-nda" firstAttribute="centerX" secondItem="bXY-R1-WDc" secondAttribute="centerX" id="76e-OO-6qQ"/>
+                                                                <constraint firstItem="GZX-bv-nda" firstAttribute="centerY" secondItem="bXY-R1-WDc" secondAttribute="centerY" id="Mzg-6G-QVE"/>
+                                                                <constraint firstItem="GZX-bv-nda" firstAttribute="top" secondItem="bXY-R1-WDc" secondAttribute="top" constant="73" id="SG7-Ls-1mN"/>
+                                                            </constraints>
                                                         </collectionViewCellContentView>
                                                     </collectionViewCell>
                                                 </cells>
@@ -89,8 +96,9 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstItem="Kh7-Va-aeS" firstAttribute="top" secondItem="9OO-Ve-54G" secondAttribute="top" id="TdA-mm-PEL"/>
-                                            <constraint firstItem="Kh7-Va-aeS" firstAttribute="leading" secondItem="9OO-Ve-54G" secondAttribute="leading" id="mmE-Cj-yLL"/>
+                                            <constraint firstItem="Kh7-Va-aeS" firstAttribute="leading" secondItem="9OO-Ve-54G" secondAttribute="leading" id="0fU-Wo-J7L"/>
+                                            <constraint firstItem="Kh7-Va-aeS" firstAttribute="centerX" secondItem="9OO-Ve-54G" secondAttribute="centerX" id="GNs-8T-IEh"/>
+                                            <constraint firstAttribute="bottom" secondItem="Kh7-Va-aeS" secondAttribute="bottom" id="pig-Cg-DGI"/>
                                             <constraint firstAttribute="height" constant="2000" id="xxY-ij-v3L"/>
                                         </constraints>
                                         <connections>
@@ -126,7 +134,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="aWn-rj-nBO">
                     <connections>
-                        <action selector="tapScreen:" destination="BYZ-38-t0r" id="JEJ-UP-NVK"/>
+                        <action selector="tappedScreen:" destination="BYZ-38-t0r" id="qti-jb-tte"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
